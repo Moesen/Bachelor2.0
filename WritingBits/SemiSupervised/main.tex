@@ -1,0 +1,42 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Preamble
+\usepackage{url}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+    ]{biblatex}
+\addbibresource{../bib/articles.bib}
+\addbibresource{../bib/notebooks.bib}
+
+\begin{document}
+\section{Overview of Semi-Supervised Learning Litterature}
+\subsection{Overview of general models}
+\subsubsection{Generative Mixture Models and EM}
+This model works by assuming a generative model:
+$$
+    p(x, y) = p(y)p(x|y)
+$$
+where $p(x|y)$ is an identifiable mixture distribution such as Gaussion mixture models. The idea is then with a large amount of unlabelled data that the mixture components can be identified, and then ideally only one labelled example per component is needed to fully determine the mixture distribution. A general way of thinking of this is that the mixture components are "soft clusters".
+
+
+
+\paragraph{Gaussian distribution}
+The gaussian distribution is historically called the law of errors. It was by Gauss to model errors in astromocial observations, which is why it is usually refered to as the Gaussian distribution. The formula for the Gaussian distribution given mean $\mu$ and standard deviation $\sigma$ is given by:
+$$
+    \phi(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} \exp{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+
+An important concept within mixture models in general is identifiability. In general let $\{p_\theta\}$ be a family of distributions indexed by a parameter vector $\theta$. $\theta$ is identifiable if $\theta_1 \neq \theta_2 \Rightarrow p_{\theta_0} \neq p_{\theta_1}$. If the model family is identifiable, in theory with infinite $U$ one can learn $\theta$ up to permutation of component indices.\\
+In contrast an example where the problem of an unindetiable is shown. Given a model $p(x|y)$ that is uniform for
+
+\section{Convergence}
+Convergence in the context of Machine Learning when the training-validation error is so close to local/global minimum or you can see it having a perfomance so close to local/global minimum that usually no significant error decrease/increase in perfomance anymore.
+
+\newpage
+\nocite{*}
+\printbibliography[heading=bibintoc,title={Bibliography}]
+
+
+\end{document}
