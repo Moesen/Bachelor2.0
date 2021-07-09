@@ -1,3 +1,7 @@
 /venv/
 /venv*/
 /GEL/
+/Data/MNIST/
+/Data/DistMatrices/
+
+**/__pycache__
