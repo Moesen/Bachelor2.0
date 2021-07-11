@@ -1,0 +1,7 @@
+[1] Datar, Indyk, Immorlica, Mirrokni, "Locality-Sensitive Hashing Scheme Based on p-Stable Distributions," 2004.
+
+[2] Weber, Schek, Blott, "A quantitative analysis and performance study for similarity-search methods in high-dimensional spaces," 1998.
+
+[3] Gionis, Indyk, Motwani, "Similarity search in high dimensions via hashing," 1999.
+
+[4] Slaney, Casey, "Locality-sensitive hashing for finding nearest neighbors", 2008.

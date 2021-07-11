@@ -1,0 +1,3 @@
+Onehot encoding labels
+Dok time: 0.08049941062927246
+Lil time: 0.011000871658325195

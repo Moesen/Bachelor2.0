@@ -23,5 +23,8 @@
     "python.pythonPath": "venv\\Scripts\\python.exe",
     "code-runner.executorMap": {
         "python": "venv\\Scripts\\python.exe",
-    }
+    },
+    "python.analysis.extraPaths": [
+        "./GSSL"
+    ]
 }
