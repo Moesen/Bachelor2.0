@@ -38,7 +38,7 @@ def show_numbers(images: list[list[float]], labels: list[str]) -> None:
         ax.set_title(f"{label}")
     plt.show()
 
-def g_heatmap(g: np.array, lbls: np.array, show=True) -> np.array:
+def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
     heat = np.zeros((10, 10), dtype=np.int16)
     for i, row in enumerate(g):
         lbl = lbls[i]
@@ -68,6 +68,17 @@ def dm_similarity(dm: np.array, lbls: np.array, show=True):
     
     return fig
 
+def pred_map(pred_lbls: np.array, true_lbls: np.array, show=True) -> np.array:
+    pred = np.zeros((10, 10), dtype=np.int16)
+    for p, t in zip(pred_lbls, true_lbls):
+        pred[t, p] += 1
+    
+    fig = sns.heatmap(pred, cmap="PuBu", annot=True, fmt="d")
+    if show: plt.show()
+
+    return fig
+
+
 def visualise_graph(g: np.array, lbls):
     r, c = np.nonzero(g > 0)
     edges = np.c_[r, c]
@@ -95,8 +106,6 @@ def visualise_graph(g: np.array, lbls):
         edge_cmap=cmap,
         width=2
     )
-    
-   
     
     ax = plt.gca()
     ax.set_axis_off()

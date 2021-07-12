@@ -8,6 +8,7 @@ from tqdm import tqdm
 import DistMatrix as DMatrix
 import MNIST
 import Visualization as V
+import experiments as ex
 
 
 # Constructs graph with k nearest neighbors
@@ -19,7 +20,12 @@ def construct_knn_graph(dm: np.array, k: int = 5) -> csr_matrix:
     for index, row in tqdm(enumerate(dm), total=len(dm)):
         temp = np.delete(row, index)
         k_max = bottleneck.argpartition(temp, k)[:k]
-        np_g[index, k_max] = 1
+        k_max[k_max > index] += 1
+
+        g_row = np.zeros(dm.shape[0])
+        g_row[k_max] = 1
+
+        np_g[index] = g_row
     return scipy.sparse.csr_matrix(np_g, dtype=np.float16)
     
 def one_hot_encode_labels(lbls, nb_classes=10):
@@ -32,12 +38,11 @@ def forget_oht_labels(oht_lbls: np.array, forget_percentage: float):
     rng = np.random.RandomState(0)
     indices = rng.choice(num, forget_num, replace=False)
     oht_lbls[indices, :] = 0
-    return oht_lbls
+    return oht_lbls, indices
 
 def propagate_labels(g: csr_matrix, csr_oht_lbls: csr_matrix, max_itter=20) -> np.array:
     org_row, org_col = csr_oht_lbls.nonzero()
     for _ in tqdm(range(max_itter)):
-        
         # Propogate Labels
         p = g.dot(csr_oht_lbls)
         # Normalise rows
@@ -63,36 +68,22 @@ def load_knn_g_and_oht_labels(num = 1000, k = 2, forget_percentage=.5, do_print=
 
     if do_print: print("Constructing knn graph")
     g = construct_knn_graph(dm, k=k)
-
-    print(g)
-
     if do_print: print("Encoding labels")
     oht_lbls = one_hot_encode_labels(lbls)
-    oht_lbls = forget_oht_labels(oht_lbls, forget_percentage=forget_percentage)
-    sparse_oht = scipy.sparse.csr_matrix(oht_lbls)
+    oht_lbls, forg_indices = forget_oht_labels(oht_lbls, forget_percentage=forget_percentage)
+    sparse_oht = scipy.sparse.csr_matrix(oht_lbls)  
 
-    return g, sparse_oht, lbls
+    return g, sparse_oht, lbls, forg_indices
 
-def test_itter_to_acc(start_itter: int = 1, end_itter: int = 10, num: int = 1000) -> list:
-                      
-    g, sparse_oht, lbls = load_knn_g_and_oht_labels(num=num, k=2, forget_percentage=.9)
-    accs = []
-
-    for i in range(start_itter, end_itter, 5):
-        print("Testing: " + str(i))
-        new_g = g.copy()
-        new_oht = sparse_oht.copy()
-        p = propagate_labels(new_g, new_oht, max_itter=i)
-        acc = test_accuracy(lbls, p)
-
-        if len(accs) > 0 and np.isclose(accs[-1][1], acc):
-            break
-
-        accs.append((i, acc))
-    return accs
-
+def test_graph(g, pred_lbls):
 
 
 if __name__ == "__main__":
-    accs = test_itter_to_acc(10, 1000, num=20000)
-    print(accs)
+    g, oht_lbls, lbls, indices = load_knn_g_and_oht_labels(num=50000, k=2, forget_percentage=.9)
+    pred_lbls = propagate_labels(g, oht_lbls, max_itter=100)
+    
+    true_lbls = lbls[indices]
+    pred_lbls = pred_lbls[indices]
+
+    print(test_accuracy(true_lbls, pred_lbls))
+    V.pred_map(pred_lbls, true_lbls)
