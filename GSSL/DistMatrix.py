@@ -1,8 +1,12 @@
 # Gustav Lang Moesmand (s174169@student.dtu.dk)
 
 # Framework for constructing graphs from a given dataset.
-import numpy as np
+import sys
+import os
+cur_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(cur_path)
 
+import numpy as np
 from scipy.spatial.distance import euclidean
 import concurrent.futures
 import os

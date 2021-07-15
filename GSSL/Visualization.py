@@ -1,8 +1,15 @@
+import sys
+import os
+cur_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(cur_path)
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns
 import networkx as nx
+
+
 
 DTU_COLS = {
     "DTU_RED": (153, 0, 0),
@@ -77,6 +84,21 @@ def pred_map(pred_lbls: np.array, true_lbls: np.array, show=True) -> np.array:
     if show: plt.show()
 
     return fig
+
+def line_diag(vals):
+    labels = [x[0] for x in vals]
+    values = [x[1] for x in vals]
+    
+    ax = plt.subplot()
+    ax.set_xticks(labels)
+    ax.set_xscale("log")
+    
+    for l, v in vals:
+        ax.text(l, v, f"{v:.1f}%")
+
+    ax.plot(labels, values)
+    
+    plt.show()
 
 
 def visualise_graph(g: np.array, lbls):

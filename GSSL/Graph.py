@@ -1,3 +1,8 @@
+import sys
+import os
+cur_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(cur_path)
+
 import bottleneck
 import numpy as np
 import scipy.sparse
@@ -26,6 +31,7 @@ def construct_knn_graph(dm: np.array, k: int = 5) -> csr_matrix:
         g_row[k_max] = 1
 
         np_g[index] = g_row
+        np_g[:,index] = g_row
     return scipy.sparse.csr_matrix(np_g, dtype=np.float16)
     
 def one_hot_encode_labels(lbls, nb_classes=10):
@@ -60,30 +66,37 @@ def propagate_labels(g: csr_matrix, csr_oht_lbls: csr_matrix, max_itter=20) -> n
 def test_accuracy(true_lbls, pred_labels):
     return np.count_nonzero(pred_labels==true_lbls)/len(true_lbls) * 100
 
-def load_knn_g_and_oht_labels(num = 1000, k = 2, forget_percentage=.5, do_print=True):
+def load_knn_g(num, k = 2, do_print=True):
     if do_print: print("Loading dist matrix and labels")
     dm = DMatrix.load_dist_matrix(num)
+    if do_print: print("Constructing knn graph")
+    g = construct_knn_graph(dm, k=k)
+    
+
+    return g
+
+def oht_labels(num, forget_percentage=.5, do_print=True):
     lbls = MNIST.load_mnist_train_labels()
     lbls = lbls[:num]
 
-    if do_print: print("Constructing knn graph")
-    g = construct_knn_graph(dm, k=k)
     if do_print: print("Encoding labels")
     oht_lbls = one_hot_encode_labels(lbls)
     oht_lbls, forg_indices = forget_oht_labels(oht_lbls, forget_percentage=forget_percentage)
     sparse_oht = scipy.sparse.csr_matrix(oht_lbls)  
 
-    return g, sparse_oht, lbls, forg_indices
+    return sparse_oht, lbls, forg_indices
 
 def test_graph(g, pred_lbls):
-
+    pass
 
 if __name__ == "__main__":
-    g, oht_lbls, lbls, indices = load_knn_g_and_oht_labels(num=50000, k=2, forget_percentage=.9)
-    pred_lbls = propagate_labels(g, oht_lbls, max_itter=100)
+    g = load_knn_g(num=50000, k=4)
+    sparse_oht_lbls, lbls, forget_indices = oht_labels(50000, forget_percentage=.95)
+
+    pred_lbls = propagate_labels(g, sparse_oht_lbls, max_itter=100)
     
-    true_lbls = lbls[indices]
-    pred_lbls = pred_lbls[indices]
+    true_lbls = lbls[forget_indices]
+    pred_lbls = pred_lbls[forget_indices]
 
     print(test_accuracy(true_lbls, pred_lbls))
     V.pred_map(pred_lbls, true_lbls)
