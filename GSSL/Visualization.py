@@ -54,12 +54,12 @@ def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
         for n in neighbor_lbls:
             heat[lbl, n] += 1
     
-    fig = sns.heatmap(heat, cmap="PuBu", annot=True, fmt="g")
+    sns.heatmap(heat, cmap="PuBu", annot=True, fmt="g")
     if show: plt.show()
 
-    return fig
+    return heat
 
-def dm_similarity(dm: np.array, lbls: np.array, show=True):
+def dm_similarity(dm: np.array, lbls: np.array, show=True) -> np.array:
     sim = np.zeros((10, 10), dtype=float)
     for i in range(10):
         lbl_idxs = np.where(lbls==i)[0]
@@ -70,10 +70,10 @@ def dm_similarity(dm: np.array, lbls: np.array, show=True):
             compared_dists_data = lbl_dists[:, compared_dist_idxs]
             sim[i, j] = np.average(compared_dists_data)//1
 
-    fig = sns.heatmap(sim, cmap="PuBu", annot=True, fmt="g")
+    sns.heatmap(sim, cmap="PuBu", annot=True, fmt="g")
     if show: plt.show()
     
-    return fig
+    return sim
 
 def pred_map(pred_lbls: np.array, true_lbls: np.array, show=True) -> np.array:
     pred = np.zeros((10, 10), dtype=np.int16)
@@ -83,7 +83,7 @@ def pred_map(pred_lbls: np.array, true_lbls: np.array, show=True) -> np.array:
     fig = sns.heatmap(pred, cmap="PuBu", annot=True, fmt="d")
     if show: plt.show()
 
-    return fig
+    return pred
 
 def line_diag(vals):
     labels = [x[0] for x in vals]
@@ -98,39 +98,6 @@ def line_diag(vals):
 
     ax.plot(labels, values)
     
-    plt.show()
-
-
-def visualise_graph(g: np.array, lbls):
-    r, c = np.nonzero(g > 0)
-    edges = np.c_[r, c]
-    
-    G = nx.Graph()
-    G.add_edges_from(edges)
-    cols = [(x[0]/255, x[1]/255, x[2]/255) for x in DTU_COLS.values()]
-    
-    labels = {key:val for key, val in enumerate(lbls)}
-    colors = [cols[x] for x in lbls]
-    cmap = plt.cm.plasma
-
-    node_sizes = [3 + 10 * i for i in range(len(g))]
-    edge_alphas = [(5 + i) / (G.number_of_edges() + 4) for i in range(G.number_of_edges())]
-    
-    
-
-    seed = 13648
-    pos = nx.spring_layout(G, seed=seed)
-    nx_nodes = nx.draw_networkx_nodes(G, pos, node_color=colors, node_size=50)
-    nx_edges = nx.draw_networkx_edges(
-        G,
-        pos,
-        edge_color="indigo",
-        edge_cmap=cmap,
-        width=2
-    )
-    
-    ax = plt.gca()
-    ax.set_axis_off()
     plt.show()
 
 if __name__ == "__main__":

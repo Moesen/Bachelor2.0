@@ -16,6 +16,9 @@ import Visualization as V
 import experiments as ex
 
 
+GRAPH_FOLDER = r"F:\Git\Bachelor2.1\Data\Graphs"
+TESTRES_FOLDER = r"F:\Git\Bachelor2.1\Data\TestResults"
+
 # Constructs graph with k nearest neighbors
 # Input:
 #   dm: Distance matrix - See DistMatrix.py
@@ -75,7 +78,7 @@ def load_knn_g(num, k = 2, do_print=True):
 
     return g
 
-def oht_labels(num, forget_percentage=.5, do_print=True):
+def oht_labels(num, forget_percentage=.5, do_print=True) -> tuple[scipy.sparse.csr_matrix, np.array, np.array]:
     lbls = MNIST.load_mnist_train_labels()
     lbls = lbls[:num]
 
@@ -84,19 +87,51 @@ def oht_labels(num, forget_percentage=.5, do_print=True):
     oht_lbls, forg_indices = forget_oht_labels(oht_lbls, forget_percentage=forget_percentage)
     sparse_oht = scipy.sparse.csr_matrix(oht_lbls)  
 
-    return sparse_oht, lbls, forg_indices
+    return (sparse_oht, lbls, forg_indices)
 
-def test_graph(g, pred_lbls):
-    pass
+def save_graph_and_labels(g: np.array, lbls: np.array, neighbors: int):
+    l = len(g)
+    np.save(os.path.join(GRAPH_FOLDER, f"graph_{l}_n_{neighbors}"), g)
+    np.save(os.path.join(GRAPH_FOLDER, f"labels_{l}_n_{neighbors}"), lbls)
+
+def load_graph_and_labels(size: int, neighbors: int):
+    filename = f"graph_{size}_n_{neighbors}.npy"
+    if filename not in os.listdir(GRAPH_FOLDER):
+        raise Exception(f"no graph with size {size}")
+    g = np.load(os.path.join(GRAPH_FOLDER, f"graph_{size}_n_{neighbors}.npy"))
+    l = np.load(os.path.join(GRAPH_FOLDER, f"labels_{size}_n_{neighbors}.npy"))
+    return (g, l)
+
+def save_test_result(true, pred):
+    l = len(true)
+    np.save(os.path.join(TESTRES_FOLDER, f"true_{l}"), true)
+    np.save(os.path.join(TESTRES_FOLDER, f"pred_{l}"), pred)
+
+def load_test_results(size: int):
+    filename = f"pred_{size}.npy"
+    if filename not in os.listdir(TESTRES_FOLDER):
+        raise Exception(f"no graph with size {size}")
+    true = np.load(os.path.join(TESTRES_FOLDER, f"true_{size}.npy"))
+    pred = np.load(os.path.join(TESTRES_FOLDER, f"pred_{size}.npy"))
+    return (true, pred)
 
 if __name__ == "__main__":
-    g = load_knn_g(num=50000, k=4)
-    sparse_oht_lbls, lbls, forget_indices = oht_labels(50000, forget_percentage=.95)
+    size = 100
+    neighbors = 4
+    p = .95
 
-    pred_lbls = propagate_labels(g, sparse_oht_lbls, max_itter=100)
+    g = load_knn_g(num=size, k=neighbors)
+    sparse_oht_lbls, lbls, forget_indices = oht_labels(size, forget_percentage=p)
+
+    new_lbls = propagate_labels(g, sparse_oht_lbls, max_itter=20)
     
     true_lbls = lbls[forget_indices]
-    pred_lbls = pred_lbls[forget_indices]
+    pred_lbls = new_lbls[forget_indices]
 
+
+    save_test_result(true_lbls, pred_lbls)
     print(test_accuracy(true_lbls, pred_lbls))
-    V.pred_map(pred_lbls, true_lbls)
+    # V.pred_map(pred_lbls, true_lbls)
+
+    save_graph_and_labels(g.tolil().toarray(), new_lbls, neighbors)
+    

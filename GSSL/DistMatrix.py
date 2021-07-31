@@ -36,7 +36,7 @@ def construct_dist_matrix(mnist_data: np.array, workers=8) -> np.array:
     return dm
 
 def save_dist_matrix(dm: np.array):
-    filename = "test_dist_matrice_" + str(len(dm))
+    filename = "dist_matrice_" + str(len(dm))
     np.save(os.path.join(DIST_PATH, filename), dm)
 
 def load_dist_matrix(size: str) -> np.array:
@@ -50,10 +50,7 @@ def is_symmetric(arr: np.array) -> bool:
 
 if __name__ == "__main__":
     data, labels = MNIST.load_mnist_train()
-    data = data[:10]
-    a = np.array_split(data, 2)
-    print(len(a[0]), len(a[1]))
+    dm = construct_dist_matrix(data, workers=10)
+    save_dist_matrix(dm)
 
 
-    # dm = construct_dist_matrix(data, workers=None)
-    # save_dist_matrix(dm)
