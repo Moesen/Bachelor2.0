@@ -24,19 +24,16 @@ TESTRES_FOLDER = r"F:\Git\Bachelor2.1\Data\TestResults"
 #   dm: Distance matrix - See DistMatrix.py
 #   k: number of neighbors
 def construct_knn_graph(dm: np.array, k: int = 5) -> csr_matrix:
-    np_g = np.zeros(dm.shape, dtype=np.float16)
+    np_g = np.zeros(dm.shape, dtype=np.int8)
     for index, row in tqdm(enumerate(dm), total=len(dm)):
-        temp = np.delete(row, index)
-        k_max = bottleneck.argpartition(temp, k)[:k]
-        k_max[k_max > index] += 1
+        k_max = bottleneck.argpartition(row, k) # Find k+1 smallest value in no particular order place in front
+        k_max = k_max[k_max != index] # Remove the current index from results (always in due to 0 being lowest)
+        k_max = k_max[:k] # Take the k front elements as they are the lowest
 
-        g_row = np.zeros(dm.shape[0])
-        g_row[k_max] = 1
+        np_g[index, k_max] = 1
+        np_g[k_max, index] = 1
+    return scipy.sparse.csr_matrix(np_g, dtype=np.int8)
 
-        np_g[index] = g_row
-        np_g[:,index] = g_row
-    return scipy.sparse.csr_matrix(np_g, dtype=np.float16)
-    
 def one_hot_encode_labels(lbls, nb_classes=10):
     res = np.eye(nb_classes)[np.array(lbls).reshape(-1)]
     return res
@@ -62,7 +59,9 @@ def propagate_labels(g: csr_matrix, csr_oht_lbls: csr_matrix, max_itter=20) -> n
         clamped[org_row] = 0
         clamped[org_row, org_col] = 1
         csr_oht_lbls = clamped.tocsr()
-    
+
+        
+
     label_matrix = csr_oht_lbls.argmax(axis=1)
     return np.squeeze(np.asarray(label_matrix))
 
@@ -116,9 +115,9 @@ def load_test_results(size: int):
     return (true, pred)
 
 if __name__ == "__main__":
-    size = 100
-    neighbors = 4
-    p = .95
+    size = 10000
+    neighbors = 10
+    p = .5
 
     g = load_knn_g(num=size, k=neighbors)
     sparse_oht_lbls, lbls, forget_indices = oht_labels(size, forget_percentage=p)

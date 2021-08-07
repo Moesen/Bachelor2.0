@@ -42,7 +42,11 @@ def show_numbers(images: list[list[float]], labels: list[str]) -> None:
         ax = fig.add_subplot(rows, cols, index+1)
         ax.imshow(image.reshape(28, 28), cmap="gray")
         ax.axis("off")
-        ax.set_title(f"{label}")
+        ax.set_title(
+            f"Label: {label}",
+            fontsize=200,)
+    plt.tight_layout()
+    plt.savefig("test")
     plt.show()
 
 def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
