@@ -40,6 +40,7 @@ def save_dist_matrix(dm: np.array):
     np.save(os.path.join(DIST_PATH, filename), dm)
 
 def load_dist_matrix(size: str) -> np.array:
+    print("Loading dist matrix")
     filename = "dist_matrice_" + str(size) + ".npy"
     if filename not in os.listdir(DIST_PATH):
         raise Exception("Dist matrix size not in folder")

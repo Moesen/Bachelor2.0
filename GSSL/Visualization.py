@@ -50,7 +50,7 @@ def show_numbers(images: list[list[float]], labels: list[str]) -> None:
     plt.show()
 
 def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
-    heat = np.zeros((10, 10), dtype=np.int16)
+    heat = np.zeros((10, 10), dtype=np.int32)
     for i, row in enumerate(g):
         lbl = lbls[i]
         neighbors = np.where(row == 1)
