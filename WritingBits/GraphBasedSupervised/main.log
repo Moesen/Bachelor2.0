@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.2.1)  7 JUN 2021 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.2.1)  17 AUG 2021 16:23
 entering extended mode
-**f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex
-(f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex
+**f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex
+(f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex
 LaTeX2e <2020-10-01> patch level 3
 L3 programming layer <2020-12-07> xparse <2020-03-03> ("C:\Program Files\MiKTeX\tex/latex/base\article.cls"
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -261,7 +261,7 @@ File: biblatex.cfg
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count379
 \l__pdf_internal_box=\box47
-) (f:/Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.aux)
+) (f:/Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -302,20 +302,9 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
- (f:/Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl)
-Runaway argument?
-{Label propagation (LP) is one of the state-of-the-art graph based se\ETC.
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:13: File ended while scanning use of \field.
-<inserted text> 
-                \par 
-l.13 \begin{document}
-                     
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+Package biblatex Info: ... file 'main.bbl' not found.
 
+No file main.bbl.
 Package biblatex Info: Reference section=0 on input line 13.
 Package biblatex Info: Reference segment=0 on input line 13.
 
@@ -331,48 +320,271 @@ Overfull \hbox (22.7125pt too wide) in paragraph at lines 15--15
 [1
 
 {C:/Users/s174169/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:20: Missing \endcsname inserted.
-<to be read again> 
-                   \let 
-l.20 ...phy[heading=bibintoc,title={Bibliography}]
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
 
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:20: Undefined control sequence.
-<argument> \blx@bbl@data 
-                         
-l.20 ...phy[heading=bibintoc,title={Bibliography}]
-                                                  
+LaTeX Warning: Empty bibliography on input line 20.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:25: Undefined control sequence.
+l.25 ...ont-separator algorithm discussed in \Cref
+                                                  {sec:skeletonization}. The...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:20: Missing \endcsname inserted.
-<to be read again> 
-                   \let 
-l.20 ...phy[heading=bibintoc,title={Bibliography}]
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
 
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:20: TeX capacity exceeded, sorry [input stack size=5000].
-\@nomath ...e \@font@warning {Command \noexpand #1
-                                                  invalid in math mode}\fi 
-l.20 ...phy[heading=bibintoc,title={Bibliography}]
-                                                  
-If you really absolutely need more capacity,
-you can ask a wizard to enlarge me.
+LaTeX Warning: Citation 'DBLP:journals/corr/abs-2102-13303' on page 2 undefined on input line 25.
 
- 
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 31.
+
+LaTeX Warning: Citation 'graphpositionalgo' on page 2 undefined on input line 32.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 34.
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:34: Undefined control sequence.
+l.34 ...sitions can be used. As discussed in \Cref
+                                                  {sec:skeletonization}, the...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation 'pymde' on page 2 undefined on input line 34.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
+
+ []
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:39: Undefined control sequence.
+l.39 ...trix used to store the graph seen in \Cref
+                                                  {sec:impoptimize} already ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:39: Undefined control sequence.
+l.39 ... as a list of edge pairs. As seen in \Cref
+                                                  {eq:sparseex1}, the sparsi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2]
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:42: Undefined control sequence.
+l.42     G \xrightarrow
+                       []{matrix}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:43: LaTeX Error: Environment bmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43     \begin{bmatrix}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:44: Misplaced alignment tab character &.
+l.44         0 &
+                 1 \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:45: Misplaced alignment tab character &.
+l.45         1 &
+                 0
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:46: LaTeX Error: \begin{equation} on input line 41 ended by \end{bmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46     \end{bmatrix}
+                      ,
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:47: Undefined control sequence.
+l.47     G \xrightarrow
+                       []{sparsity}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+
+LaTeX Warning: Citation 'graphpositionalgo' on page 3 undefined on input line 55.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:67: Undefined control sequence.
+l.67 ...ng sparsity matrices as discussed in \Cref
+                                                  {sec:impoptimize}, the aim...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:70: Undefined control sequence.
+l.70 ...es used will be experimented with in \Cref
+                                                  {chap:experiments}, as alt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3]
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:79: Undefined control sequence.
+l.79 ...ortance. The pipeline can be seen in \Cref
+                                                  {eq:imppipe}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:81: LaTeX Error: Environment align* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 \begin{align*}
+                   \label{eq:imppipe}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:82: Undefined control sequence.
+l.82 ...texttt{High dimensional data} \xrightarrow
+                                                  {mds} \texttt{2-/3-dimensi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:82: Undefined control sequence.
+l.82 ...texttt{2-/3-dimensional data} \xrightarrow
+                                                  {Create graph} \texttt{Gra...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:82: Undefined control sequence.
+l.82 ...{Create graph} \texttt{Graph} \xrightarrow
+                                                  {Skeletonize}\\ \texttt{Sk...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:82: Undefined control sequence.
+l.82 ...ze}\\ \texttt{Skeleton graph} \xrightarrow
+                                                  {Label propogate and remap...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+f:/Git/Bachelor2.0/WritingBits/GraphBasedSupervised/main.tex:83: LaTeX Error: \begin{document} ended by \end{align*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \end{align*}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[4] (f:/Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8132 strings out of 479624
- 157310 string characters out of 2875018
- 847276 words of memory out of 3000000
- 25288 multiletter control sequences out of 15000+200000
- 404640 words of font info for 31 fonts, out of 3000000 for 9000
+ 8128 strings out of 479624
+ 156975 string characters out of 2875018
+ 851245 words of memory out of 3000000
+ 25280 multiletter control sequences out of 15000+200000
+ 405116 words of font info for 33 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 5000i,4n,7498p,1446b,1010s stack positions out of 5000i,500n,10000p,200000b,50000s
-f:/Git/Bachelor2.1/WritingBits/GraphBasedSupervised/main.tex:20:  ==> Fatal error occurred, no output PDF file produced!
+ 65i,4n,70p,1182b,1138s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on f:/Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.pdf (4 pages, 94798 bytes).
+PDF statistics:
+ 39 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

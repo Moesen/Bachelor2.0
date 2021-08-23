@@ -36,3 +36,44 @@ The final step is to clamp the values. This is because we form the training data
 When the algorithm converges, the algorithm is finished. The algorithm converges when there is either no change at all or the change in probabilities is so minimal that effectively there is no change in labels. When this is done, all unlabelled nodes are assigned the label with the highest probability.
 
 \section{Test function / graph-model}
+
+
+\subsection{Optimization} \label{sec:impoptimize}
+To optimize the calculations, sparsity matrices are used implemented in \texttt{scipy}. The operations such as matrix multiplications performed in previous sections are supported in this framework. The main concern is to optimally construct the graph after creation in the graph construction phase and optimally edit values when we need to clamp the values.
+
+\subsubsection{Construction}
+When constructing the graph, the correct approach is to use a row-based list of lists sparse matrix (\texttt{lil\_matrix}) where we add one row at a time. At the time of implementation, the graph, however, was already constructed in a conventional matrix, and there existed a direct function for converting from standard matrix to sparsity matrix, which was less efficient. As the time to convert the standard matrix to a sparsity matrix using this method was not significant however, this was not changed.
+
+\subsubsection{Editing the matrix}
+The clamping of values did, however, see some performance benefit from changing matrix form, as seen in \Cref{tab:sparseimp}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{ccc}
+        \text{Without conversion} & \texttt{to\_lil} & \texttt{to\_dok}  \\ \hline
+        ...s & ...s & ...s
+    \end{tabular}
+    \caption{Runtime for algorithm with 60.000 entries}
+    \label{tab:sparseimp}
+\end{table}
+
+As the \texttt{to\_lil} was faster with almost an order 10, the matrices are converted to a row-based list of lists sparse matrix before changing values.\\
+
+The optimized part of \Cref{alg:propalg} can be seen in \Cref{alg:propalgopt}
+
+
+\begin{lstlisting}[language=python, caption = Label propagation, label=alg:propalgopt]
+    # Optmizied label propogation
+    def propagate_labels(graph, labels, max_itter):
+        labels = csr(labels)
+        known_rows, known_cols = labels.nonzero()
+        for _ in range(max_itter):
+            #...
+            # Reinsert clamped values
+            n.tolil()
+            n[org_row] = 0
+            n[org_row, org_col] = 1
+            n.tocsr()
+            
+            #...
+    \end{lstlisting}

@@ -3,6 +3,9 @@
 /GEL/
 /Data/MNIST/
 /Data/DistMatrices/
+/Data/Experiments/
+/Data/Embeddings
+/Data/Skeletons/
 
 **/__pycache__
 **.log

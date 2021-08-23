@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns
 import networkx as nx
+from scipy.sparse import csr_matrix
 
 
 
@@ -43,15 +44,16 @@ def show_numbers(images: list[list[float]], labels: list[str]) -> None:
         ax.imshow(image.reshape(28, 28), cmap="gray")
         ax.axis("off")
         ax.set_title(
-            f"Label: {label}",
+            f"Etiket: {label}",
             fontsize=200,)
     plt.tight_layout()
     plt.savefig("test")
     plt.show()
 
-def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
+def g_neighbormap(g: csr_matrix, lbls: np.array, show=True) -> np.array:
+    np_g = g.tolil().toarray()
     heat = np.zeros((10, 10), dtype=np.int32)
-    for i, row in enumerate(g):
+    for i, row in enumerate(np_g):
         lbl = lbls[i]
         neighbors = np.where(row == 1)
         neighbor_lbls = lbls[neighbors]
@@ -66,7 +68,7 @@ def g_neighbormap(g: np.array, lbls: np.array, show=True) -> np.array:
 def dm_similarity(dm: np.array, lbls: np.array, show=True) -> np.array:
     sim = np.zeros((10, 10), dtype=float)
     for i in range(10):
-        lbl_idxs = np.where(lbls==i)[0]
+        lbl_idxs = np.where(lbls==i)
         lbl_dists = dm[lbl_idxs]
         
         for j in range(10):

@@ -1,7 +1,7 @@
-PWD f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised
+PWD f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised
 INPUT C:\Users\s174169\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.tex
-OUTPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.log
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.tex
+OUTPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.log
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
@@ -189,10 +189,10 @@ INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.aux
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.aux
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.aux
-OUTPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.aux
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux
+OUTPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux
 INPUT C:\Program Files\MiKTeX\tex\latex\biblatex\lbx\english.lbx
 INPUT C:\Program Files\MiKTeX\tex\latex\biblatex\lbx\english.lbx
 INPUT C:\Program Files\MiKTeX\tex\latex\biblatex\lbx\english.lbx
@@ -232,16 +232,27 @@ INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse-generic.tex
-OUTPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bcf
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
-INPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.bbl
+OUTPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.bcf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-OUTPUT f:\Git\Bachelor2.1\WritingBits\GraphBasedSupervised\main.pdf
+OUTPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.pdf
 INPUT C:\Users\s174169\AppData\Local\MiKTeX\pdftex\config\pdftex.map
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.aux
+INPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.run.xml
+OUTPUT f:\Git\Bachelor2.0\WritingBits\GraphBasedSupervised\main.run.xml
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
